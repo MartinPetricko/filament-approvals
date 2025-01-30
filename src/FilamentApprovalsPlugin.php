@@ -1,20 +1,22 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace MartinPetricko\FilamentApprovals;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 
-class SkeletonPlugin implements Plugin
+class FilamentApprovalsPlugin implements Plugin
 {
     public function getId(): string
     {
-        return 'skeleton';
+        return 'filament-approvals';
     }
 
     public function register(Panel $panel): void
     {
-        //
+        $panel
+            ->discoverClusters(__DIR__ . '/Clusters', 'MartinPetricko\\FilamentApprovalsx\\Clusters')
+            ->discoverResources(__DIR__ . '/Resources', 'MartinPetricko\\FilamentApprovalsx\\Resources');
     }
 
     public function boot(Panel $panel): void
