@@ -38,6 +38,8 @@ class ApprovalsPage extends Page
         $this->record = $this->resolveRecord($record);
 
         $this->draft = $this->record->latestDraft;
+
+        abort_if($this->draft === null, 404);
     }
 
     protected function getHeaderActions(): array
